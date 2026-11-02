@@ -49,6 +49,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (config('app.env') === 'production' || env('APP_ENV') === 'production' || str_contains(request()->header('x-forwarded-proto', ''), 'https')) {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
         Userprofile::observe(UserprofileObserver::class);
         MediaFile::observe(MediaFileObserver::class);
         Bulletin::observe(BulletinObserver::class);
@@ -157,3 +160,5 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 }
+
+
