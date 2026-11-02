@@ -2,6 +2,7 @@ FROM php:8.2-apache
 
 # Install required system packages and PHP extension libraries
 RUN apt-get update && apt-get install -y \
+    ca-certificates \
     git \
     curl \
     libpng-dev \
@@ -47,3 +48,4 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 EXPOSE 80
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
