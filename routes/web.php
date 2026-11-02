@@ -152,6 +152,8 @@ Route::get('/privacy-policy', 'AboutController@terms');
 
 //permissions
 
+Route::redirect('/admin', '/admin/dashboard');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'namespace' => 'Admin'], function () {
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
