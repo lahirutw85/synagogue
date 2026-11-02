@@ -24,5 +24,8 @@ php artisan view:cache || true
 # Run database migrations if DB is reachable
 php artisan migrate --force || true
 
+# Initialize church, seeders, settings, and admin user
+php init_church.php || true
+
 # Start Apache in foreground
 exec apache2-foreground
