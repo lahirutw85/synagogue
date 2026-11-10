@@ -1,0 +1,328 @@
+/* ==========================================================================
+   ChurchCMS Dark & Light Theme System
+   ========================================================================== */
+
+/* Smooth theme transition */
+html, body, nav, .card, .admin-main, .dashboard-content, .admin-sidebar, input, select, textarea {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ── Light Mode (Default) ─────────────────────────────────────────────────── */
+:root {
+    --bg-primary: #f3f4f6;
+    --bg-surface: #ffffff;
+    --bg-sidebar: #1e293b;
+    --border-color: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --link-color: #2563eb;
+}
+
+/* ── Dark Mode ────────────────────────────────────────────────────────────── */
+html.dark-theme {
+    --bg-primary: #0b1120;
+    --bg-surface: #1e293b;
+    --bg-surface-elevated: #283548;
+    --bg-sidebar: #070c18;
+    --border-color: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --link-color: #60a5fa;
+    color-scheme: dark;
+}
+
+/* Global Body & Backgrounds in Dark Mode */
+html.dark-theme,
+html.dark-theme body {
+    background-color: #0b1120 !important;
+    color: #f8fafc !important;
+}
+
+html.dark-theme #app {
+    background-color: #0b1120 !important;
+}
+
+html.dark-theme .bg-gray-300,
+html.dark-theme .bg-gray-200,
+html.dark-theme .bg-gray-100 {
+    background-color: #0b1120 !important;
+}
+
+/* Navigation Bar */
+html.dark-theme nav.navbar,
+html.dark-theme .navbar.bg-white {
+    background-color: #131d31 !important;
+    border-bottom: 1px solid #1e293b !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark-theme .border-b {
+    border-color: #1e293b !important;
+}
+
+html.dark-theme .navbar .navbar-nav,
+html.dark-theme .navbar .navbar-nav strong,
+html.dark-theme .navbar .text-gray-700,
+html.dark-theme .nav-brand a {
+    color: #f1f5f9 !important;
+}
+
+/* User Profile Dropdown */
+html.dark-theme .profile-click .user-dtl {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark-theme .user-dtl a,
+html.dark-theme .user-dtl p,
+html.dark-theme .user-dtl span,
+html.dark-theme .user-dtl .text-black {
+    color: #f8fafc !important;
+}
+
+html.dark-theme .user-dtl li:hover,
+html.dark-theme .user-dtl .hover\:bg-gray-200:hover {
+    background-color: #334155 !important;
+}
+
+html.dark-theme .user-dtl .border-b {
+    border-color: #334155 !important;
+}
+
+/* Sidebar Navigation */
+html.dark-theme .admin-sidebar,
+html.dark-theme .header-wrapper-b,
+html.dark-theme #res_sidebar {
+    background-color: #090f1d !important;
+    border-right: 1px solid #1e293b !important;
+}
+
+html.dark-theme .admin-sidebar a,
+html.dark-theme .admin-sidebar span,
+html.dark-theme .admin-sidebar i {
+    color: #cbd5e1 !important;
+}
+
+html.dark-theme .admin-sidebar li:hover > a,
+html.dark-theme .admin-sidebar li:hover > a span,
+html.dark-theme .admin-sidebar li:hover > a i,
+html.dark-theme .admin-sidebar li.active > a,
+html.dark-theme .admin-sidebar li.active > a span,
+html.dark-theme .admin-sidebar li.active > a i {
+    color: #ffffff !important;
+}
+
+html.dark-theme .admin-sidebar .sites-sidebar {
+    background-color: #050811 !important;
+    border-left: 2px solid #3b82f6 !important;
+}
+
+html.dark-theme .admin-sidebar .sites-sidebar li:hover {
+    background-color: #172554 !important;
+}
+
+/* Cards & Containers */
+html.dark-theme .bg-white,
+html.dark-theme .card,
+html.dark-theme .dashboard-content,
+html.dark-theme .panel {
+    background-color: #172237 !important;
+    color: #f8fafc !important;
+    border-color: #27354f !important;
+}
+
+html.dark-theme .card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45) !important;
+}
+
+html.dark-theme .shadow,
+html.dark-theme .shadow-md,
+html.dark-theme .shadow-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Typography Overrides */
+html.dark-theme h1,
+html.dark-theme h2,
+html.dark-theme h3,
+html.dark-theme h4,
+html.dark-theme h5,
+html.dark-theme h6,
+html.dark-theme .text-gray-900,
+html.dark-theme .text-gray-800,
+html.dark-theme .text-black {
+    color: #f8fafc !important;
+}
+
+html.dark-theme .text-gray-700 {
+    color: #e2e8f0 !important;
+}
+
+html.dark-theme .text-gray-600,
+html.dark-theme .text-gray-500,
+html.dark-theme .slogan {
+    color: #94a3b8 !important;
+}
+
+html.dark-theme a:not(.btn):not(.nav-link):not(.dropdown-item) {
+    color: #60a5fa;
+}
+
+html.dark-theme a:not(.btn):not(.nav-link):not(.dropdown-item):hover {
+    color: #93c5fd;
+}
+
+/* Tables */
+html.dark-theme table {
+    background-color: #172237 !important;
+    color: #e2e8f0 !important;
+    border-color: #27354f !important;
+}
+
+html.dark-theme thead,
+html.dark-theme th {
+    background-color: #0f172a !important;
+    color: #cbd5e1 !important;
+    border-color: #27354f !important;
+}
+
+html.dark-theme td,
+html.dark-theme tbody tr {
+    border-color: #27354f !important;
+    color: #e2e8f0 !important;
+}
+
+html.dark-theme tbody tr:hover td,
+html.dark-theme tbody tr:hover {
+    background-color: #233149 !important;
+}
+
+/* Form Controls & Inputs */
+html.dark-theme input[type="text"],
+html.dark-theme input[type="email"],
+html.dark-theme input[type="password"],
+html.dark-theme input[type="number"],
+html.dark-theme input[type="search"],
+html.dark-theme input[type="date"],
+html.dark-theme input[type="time"],
+html.dark-theme select,
+html.dark-theme textarea,
+html.dark-theme .form-control {
+    background-color: #0b1120 !important;
+    color: #f8fafc !important;
+    border: 1px solid #3b4b66 !important;
+}
+
+html.dark-theme input:focus,
+html.dark-theme select:focus,
+html.dark-theme textarea:focus,
+html.dark-theme .form-control:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35) !important;
+    outline: none !important;
+}
+
+html.dark-theme select option {
+    background-color: #0b1120 !important;
+    color: #f8fafc !important;
+}
+
+html.dark-theme .input-group-addon {
+    background-color: #172237 !important;
+    border-color: #3b4b66 !important;
+}
+
+/* Modals */
+html.dark-theme .modal-content,
+html.dark-theme .modal-header,
+html.dark-theme .modal-body,
+html.dark-theme .modal-footer {
+    background-color: #172237 !important;
+    color: #f8fafc !important;
+    border-color: #27354f !important;
+}
+
+/* Trix Rich Text Editor */
+html.dark-theme trix-editor {
+    background-color: #0b1120 !important;
+    color: #f8fafc !important;
+    border: 1px solid #3b4b66 !important;
+}
+
+html.dark-theme trix-toolbar {
+    background-color: #172237 !important;
+    border: 1px solid #3b4b66 !important;
+}
+
+html.dark-theme .trix-button {
+    background-color: #1e293b !important;
+    border-color: #3b4b66 !important;
+}
+
+/* ── Modern Theme Toggle Switch Button ─────────────────────────────────────── */
+.theme-switch-wrapper {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 14px;
+}
+
+.theme-toggle-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    user-select: none;
+}
+
+.theme-toggle-btn:hover {
+    background: #e2e8f0;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.theme-toggle-btn .icon-indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fbbf24;
+    color: #78350f;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Button style in Dark Mode */
+html.dark-theme .theme-toggle-btn {
+    background: #1e293b;
+    border-color: #3b4b66;
+    color: #e2e8f0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+html.dark-theme .theme-toggle-btn:hover {
+    background: #28374f;
+    border-color: #60a5fa;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+}
+
+html.dark-theme .theme-toggle-btn .icon-indicator {
+    background: #6366f1;
+    color: #e0e7ff;
+    transform: rotate(360deg);
+}

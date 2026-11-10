@@ -18,6 +18,13 @@
         </ul>
     </div>
     <div class="flex items-center">
+        <!-- Dark / Light Theme Toggle -->
+        <div class="theme-switch-wrapper">
+            <button id="themeToggleBtn" type="button" aria-label="Toggle Theme" class="theme-toggle-btn" title="Toggle Dark/Light Mode">
+                <span class="icon-indicator"><i id="themeToggleIcon" class="fas fa-sun"></i></span>
+                <span id="themeToggleText" class="hidden sm:inline">Light</span>
+            </button>
+        </div>
         <notification url="{{ url('/') }}" mode="admin"></notification>
         <div class="navbar-menu">
             <!-- Right Side Of Navbar -->
