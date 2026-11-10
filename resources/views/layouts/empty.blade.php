@@ -10,6 +10,20 @@
     <title>{{ config('app.name', 'Church Membership Pro') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/theme-toggle.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        (function() {
+            try {
+                var savedTheme = localStorage.getItem('churchcms_theme');
+                if (savedTheme === 'dark' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark-theme');
+                } else {
+                    document.documentElement.classList.remove('dark-theme');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- g-captcha -->
 </head>
@@ -18,6 +32,14 @@
     <div id="app">
         <main>
             <div class="login-page flex flex-col items-center justify-between">
+                <div class="absolute top-4 right-6 z-50">
+                    <div class="theme-switch-wrapper">
+                        <button id="themeToggleBtn" type="button" aria-label="Toggle Theme" class="theme-toggle-btn" title="Toggle Dark/Light Mode">
+                            <span class="icon-indicator"><i id="themeToggleIcon" class="fas fa-sun"></i></span>
+                            <span id="themeToggleText" class="hidden sm:inline">Light</span>
+                        </button>
+                    </div>
+                </div>
                 <div class="flex-1 flex items-center w-full">
                     @yield('content')
                 </div>
@@ -34,6 +56,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
 
+
+    <script>
+        (function() {
+            function updateToggleUI() {
+                var isDark = document.documentElement.classList.contains('dark-theme');
+                var toggleIcon = document.getElementById('themeToggleIcon');
+                var toggleText = document.getElementById('themeToggleText');
+                if (toggleIcon) {
+                    toggleIcon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+                }
+                if (toggleText) {
+                    toggleText.textContent = isDark ? 'Dark' : 'Light';
+                }
+            }
+
+            function setupThemeToggle() {
+                var toggleBtn = document.getElementById('themeToggleBtn');
+                updateToggleUI();
+                if (toggleBtn && !toggleBtn.__themeListenerAttached) {
+                    toggleBtn.__themeListenerAttached = true;
+                    toggleBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        var isDark = document.documentElement.classList.toggle('dark-theme');
+                        try {
+                            localStorage.setItem('churchcms_theme', isDark ? 'dark' : 'light');
+                        } catch (err) {}
+                        updateToggleUI();
+                    });
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupThemeToggle);
+            } else {
+                setupThemeToggle();
+            }
+        })();
+    </script>
 
     @stack('scripts')
     <style>
