@@ -18,7 +18,11 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            $user = Auth::user();
+            if ($user && ($user->usergroup_id == 3 || $user->usergroup_id == 4)) {
+                return redirect('/admin/dashboard');
+            }
+            return redirect('/member/home');
         }
 
         return $next($request);

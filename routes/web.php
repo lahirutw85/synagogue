@@ -152,6 +152,17 @@ Route::get('/privacy-policy', 'AboutController@terms');
 
 //permissions
 
+Route::get('/home', function () {
+    if (\Illuminate\Support\Facades\Auth::check()) {
+        $user = \Illuminate\Support\Facades\Auth::user();
+        if ($user && ($user->usergroup_id == 3 || $user->usergroup_id == 4)) {
+            return redirect('/admin/dashboard');
+        }
+        return redirect('/member/home');
+    }
+    return redirect()->route('login');
+});
+
 Route::redirect('/admin', '/admin/dashboard');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'namespace' => 'Admin'], function () {
